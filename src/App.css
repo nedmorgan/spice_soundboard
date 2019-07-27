@@ -1,13 +1,7 @@
 .App {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('./media/spice-background.jpg');
-  background-size: 100vw 100vh;
-  min-height: 100vh;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
   margin: 0;
+  margin-left: 2vw;
+  margin-right: 2vw;
 }
 
 /* .App-logo {

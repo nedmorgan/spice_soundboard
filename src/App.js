@@ -1,15 +1,11 @@
 import React from 'react'
 import './App.css'
-import Header from './components/Header'
-import Positive from './components/Positive'
-import Negative from './components/Negative'
+import Main from './components/Main'
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Positive />
-      <Negative />
+      <Main />
     </div>
   )
 }

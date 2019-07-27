@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { fadeInUp } from 'react-animations'
+import song from '../media/airball.mp3'
 
 const fadeUp = keyframes`${fadeInUp}`
 
@@ -9,8 +10,8 @@ const PositiveContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   padding: 1em;
-  margin: 1em;
-  animation: .6s ${fadeUp};
+  margin: 0.7em;
+  animation: 0.6s ${fadeUp};
 
   .main-content {
     width: 100%;
@@ -22,10 +23,21 @@ const PositiveContainer = styled.div`
 `
 
 export default class Positive extends Component {
+  playSound = e => {
+    e.preventDefault()
+    // let randomSong = Math.floor(Math.random() * arr.length)
+    const audio = new Audio(song)
+    audio.play()
+    console.log('Hello')
+  }
   render() {
     return (
       <PositiveContainer>
-        <div className="main-content">Positive</div>
+        <div
+          onClick={e => this.playSound(e, this.props.posSounds)}
+          className="main-content">
+          Positive
+        </div>
       </PositiveContainer>
     )
   }

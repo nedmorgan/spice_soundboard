@@ -9,7 +9,7 @@ const NegativeContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   padding: 1em;
-  margin: 1em;
+  margin: 0.7em;
   animation: 0.9s ${fadeUp};
 
   .main-content {

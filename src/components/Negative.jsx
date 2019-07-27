@@ -14,10 +14,18 @@ const NegativeContainer = styled.div`
 
   .main-content {
     width: 100%;
+    font-size: 1em;
+    transition: font-size 0.5s ease;
+    font-weight: bold;
   }
 
   .main-content:hover {
     cursor: pointer;
+  }
+
+  .main-content:hover {
+    font-size: 1.5em;
+    color: #0085ca;
   }
 `
 
@@ -28,7 +36,7 @@ export default class Negative extends Component {
         <div
           onClick={e => this.props.negativeSounds(e, this.props.negSounds)}
           className="main-content">
-          Negative
+          The SPICE has stopped!
         </div>
       </NegativeContainer>
     )

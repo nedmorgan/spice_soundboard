@@ -14,10 +14,18 @@ const PositiveContainer = styled.div`
 
   .main-content {
     width: 100%;
+    font-size: 1em;
+    transition: font-size 0.5s ease;
+    font-weight: bold;
   }
 
   .main-content:hover {
     cursor: pointer;
+  }
+
+  .main-content:hover {
+    font-size: 1.5em;
+    color: #f40000;
   }
 `
 
@@ -28,7 +36,7 @@ export default class Positive extends Component {
         <div
           onClick={e => this.props.positiveSounds(e, this.props.posSounds)}
           className="main-content">
-          Positive
+          The SPICE is flowing!
         </div>
       </PositiveContainer>
     )

@@ -25,7 +25,11 @@ export default class Negative extends Component {
   render() {
     return (
       <NegativeContainer>
-        <div className="main-content">Negative</div>
+        <div
+          onClick={e => this.props.negativeSounds(e, this.props.negSounds)}
+          className="main-content">
+          Negative
+        </div>
       </NegativeContainer>
     )
   }

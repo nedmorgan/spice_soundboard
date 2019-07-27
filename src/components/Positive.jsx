@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { fadeInUp } from 'react-animations'
 import song from '../media/airball.mp3'
+import song2 from '../media/airmail.mp3'
 
 const fadeUp = keyframes`${fadeInUp}`
 
@@ -23,19 +24,22 @@ const PositiveContainer = styled.div`
 `
 
 export default class Positive extends Component {
+  state = {
+    songs: [song, song2]
+  }
+
   playSound = e => {
     e.preventDefault()
-    // let randomSong = Math.floor(Math.random() * arr.length)
-    const audio = new Audio(song)
+    let randomSong = Math.floor(Math.random() * this.state.songs.length)
+    console.log(randomSong)
+    const audio = new Audio(this.state.songs[randomSong])
     audio.play()
     console.log('Hello')
   }
   render() {
     return (
       <PositiveContainer>
-        <div
-          onClick={e => this.playSound(e, this.props.posSounds)}
-          className="main-content">
+        <div onClick={e => this.playSound(e)} className="main-content">
           Positive
         </div>
       </PositiveContainer>

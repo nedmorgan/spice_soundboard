@@ -54,7 +54,7 @@ export default class Header extends Component {
     return (
       <HeaderContainer>
         <div className="top-border">
-          <h1>Producation SPICE Emotional Support Application (PSESA)</h1>
+          <h1>Production SPICE Emotional Support Application (PSESA)</h1>
           <h6>
             (Be sure to have your volume on to have a full emotional support
             experience)

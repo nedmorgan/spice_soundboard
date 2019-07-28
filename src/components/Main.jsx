@@ -4,7 +4,6 @@ import Positive from './Positive'
 import Negative from './Negative'
 import airball from '../media/airball.mp3'
 import dontStart from '../media/dont-start.mp3'
-import dropsIt from '../media/drops-it.mp3'
 import excuseMe from '../media/excuse-me.mp3'
 import airmail from '../media/airmail.mp3'
 import alleyOop from '../media/alley-oop.mp3'
@@ -21,7 +20,6 @@ import cares from '../media/cares.mp3'
 import embarassing from '../media/embarassing.mp3'
 import empty from '../media/empty.mp3'
 import getOut from '../media/get-out.mp3'
-import goaltending from '../media/goaltending.mp3'
 import heating2 from '../media/heating-2.mp3'
 import hereComes from '../media/here-comes.mp3'
 import hole from '../media/hole.mp3'
@@ -43,7 +41,6 @@ import papa2 from '../media/papa-2.mp3'
 import party from '../media/party.mp3'
 import putBoom from '../media/puts-boom.mp3'
 import rejected from '../media/rejected.mp3'
-import shootin from '../media/shootin.mp3'
 import think from '../media/think.mp3'
 import tooEasy from '../media/too-easy.mp3'
 import tooFar from '../media/too-far.mp3'
@@ -74,16 +71,15 @@ export default class Main extends Component {
       papa2,
       party,
       putBoom,
-      shootin,
       tooEasy,
       yes,
       noMansLand,
+      hole,
       waffleHouse
     ],
     negSounds: [
       airball,
       dontStart,
-      dropsIt,
       excuseMe,
       blowOver,
       boards,
@@ -92,8 +88,6 @@ export default class Main extends Component {
       embarassing,
       empty,
       getOut,
-      goaltending,
-      hole,
       jokin,
       mudPie,
       noGood,
@@ -139,6 +133,7 @@ export default class Main extends Component {
     return (
       <div>
         <Header />
+        <h1>Use PSESA's words to express your feelings...</h1>
         <Positive
           posSounds={this.state.posSounds}
           positiveSounds={this.playSound}

@@ -36,7 +36,7 @@ export default class Positive extends Component {
         <div
           onClick={e => this.props.positiveSounds(e, this.props.posSounds)}
           className="main-content">
-          The SPICE is flowing!
+          The SPICE is on today! Feeling Good!
         </div>
       </PositiveContainer>
     )

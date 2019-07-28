@@ -36,7 +36,7 @@ export default class Negative extends Component {
         <div
           onClick={e => this.props.negativeSounds(e, this.props.negSounds)}
           className="main-content">
-          The SPICE has stopped!
+          Can't get Spicy. Gonna be a rough one...
         </div>
       </NegativeContainer>
     )

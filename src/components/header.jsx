@@ -13,10 +13,19 @@ const HeaderContainer = styled.div`
     margin-top: 1vw;
   }
 
-  h1 {
+  h1,
+  h6 {
     margin: 0;
+  }
+
+  h1 {
     font-size: 1em;
-    padding: 0.5em;
+    padding: 0.2em;
+  }
+
+  h6 {
+    font-size: 0.5em;
+    padding: 0.2em;
   }
 
   .nav-container {
@@ -40,22 +49,23 @@ const HeaderContainer = styled.div`
   }
 `
 
-const doesNothing = e => {
-  e.preventDefault()
-  alert(
-    'This link does nothing! Make sure your volume is up to try the other links!'
-  )
-}
-
 export default class Header extends Component {
   render() {
     return (
       <HeaderContainer>
         <div className="top-border">
-          <h1>Prod Spice Soundboard</h1>
+          <h1>Producation SPICE Emotional Support Application (PSESA)</h1>
+          <h6>
+            (Be sure to have your volume on to have a full emotional support
+            experience)
+          </h6>
         </div>
         <div className="nav-container">
-          <a className="nav-link" onClick={e => doesNothing(e)}>
+          <a
+            className="nav-link"
+            rel="noopener noreferrer"
+            href="https://people.com/pets/most-popular-cat-videos-on-the-internet/"
+            target="_blank">
             Data Systems
           </a>
           <a
@@ -65,13 +75,25 @@ export default class Header extends Component {
             target="_blank">
             Data Types
           </a>
-          <a className="nav-link" onClick={e => doesNothing(e)}>
+          <a
+            className="nav-link"
+            rel="noopener noreferrer"
+            href="https://codeburst.io/i-want-to-learn-programming-but-i-dont-know-where-to-start-80dd2d55e1fd"
+            target="_blank">
             Data Sources
           </a>
-          <a className="nav-link" onClick={e => doesNothing(e)}>
+          <a
+            className="nav-link"
+            rel="noopener noreferrer"
+            href={`https://www.boredpanda.com/unusual-animal-friendships-interspecies/?utm_source=google&utm_medium=organic&utm_campaign=organic`}
+            target="_blank">
             Integrations
           </a>
-          <a className="nav-link" onClick={e => doesNothing(e)}>
+          <a
+            className="nav-link"
+            rel="noopener noreferrer"
+            href="https://www.vox.com/2015/4/30/11562024/too-embarrassed-to-ask-what-is-the-cloud-and-how-does-it-work"
+            target="_blank">
             Endpoints
           </a>
         </div>

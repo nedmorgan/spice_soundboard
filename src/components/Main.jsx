@@ -98,9 +98,7 @@ export default class Main extends Component {
       think,
       tooFar,
       utOh
-    ],
-    isPosDelivered: false,
-    isNegDelivered: false
+    ]
   }
 
   playSound = (e, arr) => {
@@ -108,25 +106,6 @@ export default class Main extends Component {
     let randomSong = Math.floor(Math.random() * arr.length)
     const audio = new Audio(arr[randomSong])
     audio.play()
-  }
-
-  isPosDelivered = e => {
-    e.preventDefault()
-    this.setState((state, props) => {
-      return { isPosDelivered: true }
-    })
-  }
-
-  isNegDelivered = e => {
-    e.preventDefault()
-    this.setState((state, props) => {
-      return { isNegDelivered: true }
-    })
-  }
-
-  toggleDelivery = (e, delivery) => {
-    e.preventDefault()
-    this.setState({})
   }
 
   render() {

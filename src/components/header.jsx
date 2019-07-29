@@ -66,35 +66,35 @@ export default class Header extends Component {
             rel="noopener noreferrer"
             href="https://people.com/pets/most-popular-cat-videos-on-the-internet/"
             target="_blank">
-            Data Systems
+            Cat Videos
           </a>
           <a
             className="nav-link"
             rel="noopener noreferrer"
             href="https://www.rickrolled.com/get-rolled"
             target="_blank">
-            Data Types
+            Mystery
           </a>
           <a
             className="nav-link"
             rel="noopener noreferrer"
             href="https://codeburst.io/i-want-to-learn-programming-but-i-dont-know-where-to-start-80dd2d55e1fd"
             target="_blank">
-            Data Sources
+            Advanced Learning
           </a>
           <a
             className="nav-link"
             rel="noopener noreferrer"
             href={`https://www.boredpanda.com/unusual-animal-friendships-interspecies/?utm_source=google&utm_medium=organic&utm_campaign=organic`}
             target="_blank">
-            Integrations
+            New Friends
           </a>
           <a
             className="nav-link"
             rel="noopener noreferrer"
             href="https://www.vox.com/2015/4/30/11562024/too-embarrassed-to-ask-what-is-the-cloud-and-how-does-it-work"
             target="_blank">
-            Endpoints
+            Resources
           </a>
         </div>
       </HeaderContainer>

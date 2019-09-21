@@ -15,8 +15,6 @@ const DarkModeContainer = styled.div`
     background-color: rgba(0, 0, 0, 0.05);
     padding: 0.6em;
   }
-
-  
 `
 
 export default class DarkModeButton extends Component {

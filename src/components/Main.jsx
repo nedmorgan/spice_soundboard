@@ -65,6 +65,15 @@ const MainContainer = styled.div`
     justify-content: space-between;
     width: 100%;
   }
+
+  @media (max-width: 768px) {
+    .header-div {
+      flex-direction: column;
+    }
+    h1 {
+      text-align: center;
+    }
+  }
 `
 
 export default class Main extends Component {

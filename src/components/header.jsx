@@ -69,6 +69,12 @@ const HeaderContainer = styled.div`
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: 0.28rem;
   }
+
+  @media (max-width: 768px) {
+    a {
+      text-align: center;
+    }
+  }
 `
 
 export default class Header extends Component {

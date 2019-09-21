@@ -35,11 +35,31 @@ const HeaderContainer = styled.div`
     padding: 0.5em;
   }
 
+  .dark-nav-container {
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 0px 1rem 0px;
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5em;
+  }
+
   .nav-link {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.95);
     box-shadow: none;
     padding: 0.5em;
+  }
+
+  .dark-nav-link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+    box-shadow: none;
+    padding: 0.5em;
+  }
+
+  .dark-nav-link:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.28rem;
   }
 
   .nav-link:hover {
@@ -53,44 +73,47 @@ export default class Header extends Component {
   render() {
     return (
       <HeaderContainer>
-        <div className="top-border">
+        <div className={`top-border`}>
           <h1>Production SPICE Emotional Support Application (PSESA)</h1>
           <h6>
             (Be sure to have your volume on to have a full emotional support
             experience)
           </h6>
         </div>
-        <div className="nav-container">
+        <div
+          className={
+            this.props.isDarkMode ? `dark-nav-container` : `nav-container`
+          }>
           <a
-            className="nav-link"
+            className={this.props.isDarkMode ? `dark-nav-link` : `nav-link`}
             rel="noopener noreferrer"
             href="https://people.com/pets/most-popular-cat-videos-on-the-internet/"
             target="_blank">
             Cat Videos
           </a>
           <a
-            className="nav-link"
+            className={this.props.isDarkMode ? `dark-nav-link` : `nav-link`}
             rel="noopener noreferrer"
             href="https://www.rickrolled.com/get-rolled"
             target="_blank">
             Mystery
           </a>
           <a
-            className="nav-link"
+            className={this.props.isDarkMode ? `dark-nav-link` : `nav-link`}
             rel="noopener noreferrer"
             href="https://codeburst.io/i-want-to-learn-programming-but-i-dont-know-where-to-start-80dd2d55e1fd"
             target="_blank">
             Advanced Learning
           </a>
           <a
-            className="nav-link"
+            className={this.props.isDarkMode ? `dark-nav-link` : `nav-link`}
             rel="noopener noreferrer"
             href={`https://www.boredpanda.com/unusual-animal-friendships-interspecies/?utm_source=google&utm_medium=organic&utm_campaign=organic`}
             target="_blank">
             New Friends
           </a>
           <a
-            className="nav-link"
+            className={this.props.isDarkMode ? `dark-nav-link` : `nav-link`}
             rel="noopener noreferrer"
             href="https://www.vox.com/2015/4/30/11562024/too-embarrassed-to-ask-what-is-the-cloud-and-how-does-it-work"
             target="_blank">

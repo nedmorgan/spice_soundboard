@@ -98,7 +98,8 @@ export default class Main extends Component {
       think,
       tooFar,
       utOh
-    ]
+    ],
+    isDarkMode: false
   }
 
   playSound = (e, arr) => {
@@ -108,18 +109,26 @@ export default class Main extends Component {
     audio.play()
   }
 
+  toggleDarkMode = e => {
+    e.preventDefault()
+    let isDarkMode = this.state.isDarkMode
+    this.setState({ isDarkMode: !isDarkMode })
+  }
+
   render() {
     return (
       <div>
-        <Header />
+        <Header isDarkMode={this.state.isDarkMode} />
         <h1>Use PSESA's words to express your feelings...</h1>
         <Positive
           posSounds={this.state.posSounds}
           positiveSounds={this.playSound}
+          isDarkMode={this.state.isDarkMode}
         />
         <Negative
           negSounds={this.state.negSounds}
           negativeSounds={this.playSound}
+          isDarkMode={this.state.isDarkMode}
         />
       </div>
     )

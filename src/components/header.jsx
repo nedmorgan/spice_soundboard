@@ -47,6 +47,7 @@ const HeaderContainer = styled.div`
     color: rgba(0, 0, 0, 0.95);
     box-shadow: none;
     padding: 0.5em;
+    font-weight: 500;
   }
 
   .dark-nav-link {
@@ -54,17 +55,18 @@ const HeaderContainer = styled.div`
     color: rgba(255, 255, 255, 0.9);
     box-shadow: none;
     padding: 0.5em;
+    font-weight: 500;
   }
 
   .dark-nav-link:hover {
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 0.28rem;
   }
 
   .nav-link:hover {
     cursor: pointer;
-    background: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.05);
     border-radius: 0.28rem;
   }
 `

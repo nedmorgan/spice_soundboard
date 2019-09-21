@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Header from './Header'
 import Positive from './Positive'
 import Negative from './Negative'
+import DarkModeButton from './DarkModeButton'
 import airball from '../media/airball.mp3'
 import dontStart from '../media/dont-start.mp3'
 import excuseMe from '../media/excuse-me.mp3'
@@ -47,9 +48,28 @@ import tooFar from '../media/too-far.mp3'
 import utOh from '../media/ut-oh.mp3'
 import waffleHouse from '../media/waffle-house.mp3'
 import yes from '../media/yes.mp3'
+import styled from 'styled-components'
+
+const MainContainer = styled.div`
+  .dark-mode-title {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .normal-title {
+    color: black;
+  }
+
+  .header-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+`
 
 export default class Main extends Component {
   state = {
+    isDarkMode: false,
     posSounds: [
       airmail,
       alleyOop,
@@ -98,8 +118,7 @@ export default class Main extends Component {
       think,
       tooFar,
       utOh
-    ],
-    isDarkMode: false
+    ]
   }
 
   playSound = (e, arr) => {
@@ -109,17 +128,33 @@ export default class Main extends Component {
     audio.play()
   }
 
-  toggleDarkMode = e => {
-    e.preventDefault()
+  toggleDarkMode = () => {
     let isDarkMode = this.state.isDarkMode
-    this.setState({ isDarkMode: !isDarkMode })
+    if (isDarkMode === false) {
+      this.setState({ isDarkMode: true })
+      document.body.setAttribute('style', 'background-color: black;')
+    } else {
+      this.setState({ isDarkMode: false })
+      document.body.setAttribute('style', 'background-color: white;')
+    }
   }
 
   render() {
     return (
-      <div>
+      <MainContainer>
         <Header isDarkMode={this.state.isDarkMode} />
-        <h1>Use PSESA's words to express your feelings...</h1>
+        <div className={`header-div`}>
+          <h1
+            className={
+              this.state.isDarkMode ? `dark-mode-title` : `normal-title`
+            }>
+            Use PSESA's words to express your feelings...
+          </h1>
+          <DarkModeButton
+            toggleDarkMode={this.toggleDarkMode}
+            isDarkMode={this.state.isDarkMode}
+          />
+        </div>
         <Positive
           posSounds={this.state.posSounds}
           positiveSounds={this.playSound}
@@ -130,7 +165,7 @@ export default class Main extends Component {
           negativeSounds={this.playSound}
           isDarkMode={this.state.isDarkMode}
         />
-      </div>
+      </MainContainer>
     )
   }
 }

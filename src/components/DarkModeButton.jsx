@@ -26,7 +26,7 @@ export default class DarkModeButton extends Component {
             this.props.isDarkMode ? `button-dark-mode` : `button-normal`
           }
           onClick={this.props.toggleDarkMode}>
-          Dark Mode
+          {this.props.isDarkMode ? `Light Mode` : `Dark Mode`}
         </button>
       </DarkModeContainer>
     )

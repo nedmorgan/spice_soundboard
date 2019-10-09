@@ -4,6 +4,7 @@ import Positive from './Positive'
 import Negative from './Negative'
 import DarkModeButton from './DarkModeButton'
 import DRButton from './DRButton'
+import DRMode from './DRMode'
 import airball from '../media/airball.mp3'
 import dontStart from '../media/dont-start.mp3'
 import excuseMe from '../media/excuse-me.mp3'
@@ -52,7 +53,7 @@ import yes from '../media/yes.mp3'
 import styled from 'styled-components'
 
 const MainContainer = styled.div`
-  height: 100%;
+  min-height: 100%;
   .dark-mode-title {
     color: rgba(255, 255, 255, 0.9);
   }
@@ -79,59 +80,63 @@ const MainContainer = styled.div`
 `
 
 export default class Main extends Component {
-  state = {
-    isDarkMode: false,
-    isDRMode: false,
-    DRCountdown: 5,
-    posSounds: [
-      airmail,
-      alleyOop,
-      banana,
-      bigPapa,
-      blast,
-      cool,
-      fingerRoll,
-      giveBoom,
-      hereComes,
-      heating2,
-      itsGood,
-      kaboom,
-      kingJames,
-      knows,
-      longRange,
-      loveIt,
-      onFire,
-      papa2,
-      party,
-      putBoom,
-      tooEasy,
-      yes,
-      noMansLand,
-      hole,
-      waffleHouse
-    ],
-    negSounds: [
-      airball,
-      dontStart,
-      excuseMe,
-      blowOver,
-      boards,
-      butterfingers,
-      cares,
-      embarassing,
-      empty,
-      getOut,
-      jokin,
-      mudPie,
-      noGood,
-      notTonight,
-      noSurprise,
-      ouch,
-      rejected,
-      think,
-      tooFar,
-      utOh
-    ]
+  constructor(props) {
+    super(props)
+    this.activateDRMode = this.activateDRMode.bind(this)
+    this.state = {
+      isDarkMode: false,
+      isDRMode: false,
+      DRCountdown: 6,
+      posSounds: [
+        airmail,
+        alleyOop,
+        banana,
+        bigPapa,
+        blast,
+        cool,
+        fingerRoll,
+        giveBoom,
+        hereComes,
+        heating2,
+        itsGood,
+        kaboom,
+        kingJames,
+        knows,
+        longRange,
+        loveIt,
+        onFire,
+        papa2,
+        party,
+        putBoom,
+        tooEasy,
+        yes,
+        noMansLand,
+        hole,
+        waffleHouse
+      ],
+      negSounds: [
+        airball,
+        dontStart,
+        excuseMe,
+        blowOver,
+        boards,
+        butterfingers,
+        cares,
+        embarassing,
+        empty,
+        getOut,
+        jokin,
+        mudPie,
+        noGood,
+        notTonight,
+        noSurprise,
+        ouch,
+        rejected,
+        think,
+        tooFar,
+        utOh
+      ]
+    }
   }
 
   playSound = (e, arr) => {
@@ -152,40 +157,51 @@ export default class Main extends Component {
     }
   }
 
-  activateDRMode = e => {
-    e.preventDefault()
+  activateDRMode = () => {
     this.setState((state, props) => {
-      return { isDRMode: !state.isDRMode }
+      return { isDRMode: true }
     })
+    if (this.state.DRCountdown > 0) {
+      this.setState({ DRCountdown: this.state.DRCountdown - 1 })
+    }
   }
 
   render() {
     return (
       <MainContainer>
-        <Header isDarkMode={this.state.isDarkMode} />
-        <div className={`header-div`}>
-          <h1
-            className={
-              this.state.isDarkMode ? `dark-mode-title` : `normal-title`
-            }>
-            Use PSESA's words to express your feelings...
-          </h1>
-          <DarkModeButton
-            toggleDarkMode={this.toggleDarkMode}
-            isDarkMode={this.state.isDarkMode}
+        {this.state.isDRMode ? (
+          <DRMode
+            DRCountdown={this.state.DRCountdown}
+            activateDRMode={this.activateDRMode}
           />
-        </div>
-        <Positive
-          posSounds={this.state.posSounds}
-          positiveSounds={this.playSound}
-          isDarkMode={this.state.isDarkMode}
-        />
-        <Negative
-          negSounds={this.state.negSounds}
-          negativeSounds={this.playSound}
-          isDarkMode={this.state.isDarkMode}
-        />
-        <DRButton activateDRMode={this.activateDRMode} />
+        ) : (
+          <div>
+            <Header isDarkMode={this.state.isDarkMode} />
+            <div className={`header-div`}>
+              <h1
+                className={
+                  this.state.isDarkMode ? `dark-mode-title` : `normal-title`
+                }>
+                Use PSESA's words to express your feelings...
+              </h1>
+              <DarkModeButton
+                toggleDarkMode={this.toggleDarkMode}
+                isDarkMode={this.state.isDarkMode}
+              />
+            </div>
+            <Positive
+              posSounds={this.state.posSounds}
+              positiveSounds={this.playSound}
+              isDarkMode={this.state.isDarkMode}
+            />
+            <Negative
+              negSounds={this.state.negSounds}
+              negativeSounds={this.playSound}
+              isDarkMode={this.state.isDarkMode}
+            />
+            <DRButton activateDRMode={this.activateDRMode} />
+          </div>
+        )}
       </MainContainer>
     )
   }

@@ -3,6 +3,7 @@ import Header from './Header'
 import Positive from './Positive'
 import Negative from './Negative'
 import DarkModeButton from './DarkModeButton'
+import DRButton from './DRButton'
 import airball from '../media/airball.mp3'
 import dontStart from '../media/dont-start.mp3'
 import excuseMe from '../media/excuse-me.mp3'
@@ -51,6 +52,7 @@ import yes from '../media/yes.mp3'
 import styled from 'styled-components'
 
 const MainContainer = styled.div`
+  height: 100%;
   .dark-mode-title {
     color: rgba(255, 255, 255, 0.9);
   }
@@ -174,6 +176,7 @@ export default class Main extends Component {
           negativeSounds={this.playSound}
           isDarkMode={this.state.isDarkMode}
         />
+        <DRButton />
       </MainContainer>
     )
   }

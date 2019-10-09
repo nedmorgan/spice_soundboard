@@ -31,7 +31,7 @@ export default class DRButton extends Component {
   render() {
     return (
       <DRButtonContainer>
-        <button>DR Mode</button>
+        <button onClick={e => this.props.activateDRMode(e)}>DR Mode</button>
       </DRButtonContainer>
     )
   }

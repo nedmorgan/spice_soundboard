@@ -81,6 +81,8 @@ const MainContainer = styled.div`
 export default class Main extends Component {
   state = {
     isDarkMode: false,
+    isDRMode: false,
+    DRCountdown: 5,
     posSounds: [
       airmail,
       alleyOop,
@@ -150,6 +152,13 @@ export default class Main extends Component {
     }
   }
 
+  activateDRMode = e => {
+    e.preventDefault()
+    this.setState((state, props) => {
+      return { isDRMode: !state.isDRMode }
+    })
+  }
+
   render() {
     return (
       <MainContainer>
@@ -176,7 +185,7 @@ export default class Main extends Component {
           negativeSounds={this.playSound}
           isDarkMode={this.state.isDarkMode}
         />
-        <DRButton />
+        <DRButton activateDRMode={this.activateDRMode} />
       </MainContainer>
     )
   }

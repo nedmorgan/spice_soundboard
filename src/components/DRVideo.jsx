@@ -20,6 +20,7 @@ const VideoContainer = styled.div`
     font-weight: bold;
     opacity: 1;
     transition: 0.3s;
+    font-size: 2em;
   }
 
   button:hover {

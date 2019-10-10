@@ -18,7 +18,9 @@ export default class DRMode extends Component {
     return (
       <DRModeContainer>
         {this.props.videoMode ? (
-          <DRVideo />
+          <DRVideo
+            resetCountdownAndDRMode={this.props.resetCountdownAndDRMode}
+          />
         ) : (
           <h1 id={`countdown-timer`}>{`${String(
             this.props.DRCountdown

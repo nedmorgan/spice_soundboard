@@ -85,8 +85,9 @@ export default class Main extends Component {
     this.activateDRMode = this.activateDRMode.bind(this)
     this.state = {
       isDarkMode: false,
-      isDRMode: false,
-      DRCountdown: 6,
+      isMainMode: true,
+      DRCountdown: 5,
+      videoMode: false,
       posSounds: [
         airmail,
         alleyOop,
@@ -158,23 +159,25 @@ export default class Main extends Component {
   }
 
   activateDRMode = () => {
-    this.setState((state, props) => {
-      return { isDRMode: true }
-    })
-    if (this.state.DRCountdown > 0) {
-      this.setState({ DRCountdown: this.state.DRCountdown - 1 })
-    }
+    this.setState({ isMainMode: false })
+    const timer = setInterval(() => {
+      if (this.state.DRCountdown > 0) {
+        this.setState({ DRCountdown: this.state.DRCountdown - 1 })
+      } else {
+        this.setState({ videoMode: true })
+        return () => clearInterval(timer)
+      }
+    }, 1000)
+  }
+
+  resetCountdownAndDRMode = () => {
+    this.setState({ DRCountdown: 5, videoMode: false, isMainMode: true })
   }
 
   render() {
     return (
       <MainContainer>
-        {this.state.isDRMode ? (
-          <DRMode
-            DRCountdown={this.state.DRCountdown}
-            activateDRMode={this.activateDRMode}
-          />
-        ) : (
+        {this.state.isMainMode ? (
           <div>
             <Header isDarkMode={this.state.isDarkMode} />
             <div className={`header-div`}>
@@ -201,6 +204,13 @@ export default class Main extends Component {
             />
             <DRButton activateDRMode={this.activateDRMode} />
           </div>
+        ) : (
+          <DRMode
+            DRCountdown={this.state.DRCountdown}
+            resetCountdownAndDRMode={this.resetCountdownAndDRMode}
+            activateDRMode={this.activateDRMode}
+            videoMode={this.state.videoMode}
+          />
         )}
       </MainContainer>
     )

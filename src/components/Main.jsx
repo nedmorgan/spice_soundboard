@@ -69,6 +69,21 @@ const MainContainer = styled.div`
     width: 100%;
   }
 
+  h5 {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    margin: 0;
+  }
+
+  .white-version-text {
+    color: whitesmoke;
+  }
+
+  .dark-version-text {
+    color: black;
+  }
+
   @media (max-width: 768px) {
     .header-div {
       flex-direction: column;
@@ -210,8 +225,15 @@ export default class Main extends Component {
             resetCountdownAndDRMode={this.resetCountdownAndDRMode}
             activateDRMode={this.activateDRMode}
             videoMode={this.state.videoMode}
+            isDarkMode={this.state.isDarkMode}
           />
         )}
+        <h5
+          className={
+            this.state.isDarkMode ? `white-version-text` : `dark-version-text`
+          }>
+          v.1.5.167
+        </h5>
       </MainContainer>
     )
   }

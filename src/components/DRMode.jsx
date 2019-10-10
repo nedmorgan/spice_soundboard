@@ -11,6 +11,14 @@ const DRModeContainer = styled.div`
   h1 {
     font-size: 20vw;
   }
+
+  .dark-font {
+    color: black;
+  }
+
+  .white-font {
+    color: whitesmoke;
+  }
 `
 
 export default class DRMode extends Component {
@@ -22,9 +30,9 @@ export default class DRMode extends Component {
             resetCountdownAndDRMode={this.props.resetCountdownAndDRMode}
           />
         ) : (
-          <h1 id={`countdown-timer`}>{`${String(
-            this.props.DRCountdown
-          )}...`}</h1>
+          <h1
+            className={this.props.isDarkMode ? `white-font` : `dark-font`}
+            id={`countdown-timer`}>{`${String(this.props.DRCountdown)}...`}</h1>
         )}
       </DRModeContainer>
     )

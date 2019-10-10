@@ -19,6 +19,7 @@ const DRButtonContainer = styled.div`
     font-weight: bold;
     opacity: 1;
     transition: 0.3s;
+    font-size: 4em;
   }
 
   button:hover {
